@@ -12,7 +12,11 @@ namespace Gamji.Infrastructure.Customers
     {
         public Customer GetCustomer(int id)
         {
-            throw new NotImplementedException();
+            return new Customer
+                {
+                    FirstName = "Rod",
+                    LastName = "Johnson"
+                };
         }
     }
 }
