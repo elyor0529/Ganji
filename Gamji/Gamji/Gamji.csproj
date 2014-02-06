@@ -78,7 +78,7 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -97,7 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -105,13 +107,19 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Gamji.Core\Gamji.Core.csproj">
       <Project>{1AA6319C-DB9F-484E-A8C9-48C067BDD6B2}</Project>
       <Name>Gamji.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gamji.DependencyResolution\Gamji.DependencyResolution.csproj">
+      <Project>{ebe30087-a7e2-4456-ba30-a853aa9f4bab}</Project>
+      <Name>Gamji.DependencyResolution</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gamji.Infrastructure\Gamji.Infrastructure.csproj">
+      <Project>{b7489e83-3ab0-4192-85f8-700018af4748}</Project>
+      <Name>Gamji.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
