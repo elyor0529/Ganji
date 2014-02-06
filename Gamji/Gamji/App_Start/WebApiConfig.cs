@@ -14,25 +14,30 @@ namespace Gamji
 
 			//config.EnsureInitialized();
 			config.Routes.MapHttpRoute(
-				name: "ApiByName",
+				name: "Api1",
+				routeTemplate: "api/{controller}/{action}/"
+
+			);
+			config.Routes.MapHttpRoute(
+				name: "Api",
 				routeTemplate: "api/{controller}/{action}/{id}",
-				defaults: null //,
-				//constraints: new { name = @"^[a-z]+$" }
+				defaults: null,
+				constraints: new { id = @"^\d+$" }
+
+			);
+			
+			config.Routes.MapHttpRoute(
+				name: "ApiByEmailId1",
+				routeTemplate: "api/{controller}/{action}/{emailId}/{password}"
+			
 			);
 
-			//config.Routes.MapHttpRoute(
-			//	name: "ApiById",
-			//	routeTemplate: "api/{controller}/{id}",
-			//	defaults: new { id = RouteParameter.Optional },
-			//	constraints: new { id = @"^[0-9]+$" }
-			//);
-
-
-			//config.Routes.MapHttpRoute(
-			//	name: "ApiByAction",
-			//	routeTemplate: "api/{controller}/{action}",
-			//	defaults: new { action = "Get" }
-			//);
+			config.Routes.MapHttpRoute(
+				name: "ApiByEmailId",
+				routeTemplate: "api/{controller}/{action}/{emailId}/{verificationCode}/{newPassword}",
+				defaults: new { verificationCode = RouteParameter.Optional, newPassword = RouteParameter.Optional } ,
+				constraints: new { emailId = @"^[a-z]+$" }
+			);
 		}
 	}
 }
