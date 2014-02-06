@@ -98,9 +98,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\NinjectWebCommon.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="NinjectResolver.cs" />
     <Compile Include="NinjectScope.cs" />
     <Compile Include="NinjectStartup.cs" />
