@@ -22,27 +22,30 @@ namespace Gamji.Controllers
 		{
 			return _customerRepository.GetCustomerByEmail(EmailId);
 		}
-
-		public Customer ValidateCustomerLogin(string EmailId, string Password)
+		///Only CustomerId is returned back
+		[HttpGet]
+		public int ValidateCustomerLogin(string EmailId, string Password)
 		{
-			return _customerRepository.ValidateCustomerLogin(EmailId, Password);
+			return _customerRepository.ValidateCustomerLogin(EmailId, Password).CustomerId;
 		}
 
 		[HttpPut]
-		public Customer AddNewCustomer(Customer c)  //The added customer's Id.
+		//The added customer's Id.
+		public int AddNewCustomer(Customer c)  //The added customer's Id.
 		{
-			return _customerRepository.AddNewCustomer(c);
+			return _customerRepository.AddNewCustomer(c).CustomerId;
+		}
+		
+		//Id of customer returned back as response.
+		public int ForgotPassword(string EmailId)
+		{ 
+			return _customerRepository.ForgotPassword(EmailId).CustomerId;
 		}
 
-		public Customer ForgotPassword(string EmailId)
-		{ //Id of customer returned back as response.
-			return _customerRepository.ForgotPassword(EmailId);
-		}
-
-		public Customer ResetPassword(string EmailId, string VerificationCode, string NewPassword)
+		public int ResetPassword(string EmailId, string VerificationCode, string NewPassword)
 		{  //The updated row's Id is returned back.
 
-			return _customerRepository.ResetPassword(EmailId, VerificationCode, NewPassword);
+			return _customerRepository.ResetPassword(EmailId, VerificationCode, NewPassword).CustomerId;
 		}
 	}
 }

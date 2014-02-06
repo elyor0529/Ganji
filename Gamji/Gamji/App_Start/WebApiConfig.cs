@@ -14,20 +14,20 @@ namespace Gamji
 
 			//config.EnsureInitialized();
 			config.Routes.MapHttpRoute(
-				name: "Api1",
+				name: "ApiDefault",
 				routeTemplate: "api/{controller}/{action}/"
 
 			);
+
 			config.Routes.MapHttpRoute(
 				name: "Api",
 				routeTemplate: "api/{controller}/{action}/{id}",
 				defaults: null,
 				constraints: new { id = @"^\d+$" }
-
 			);
 			
 			config.Routes.MapHttpRoute(
-				name: "ApiByEmailId1",
+				name: "ApiLogin",
 				routeTemplate: "api/{controller}/{action}/{emailId}/{password}"
 			
 			);

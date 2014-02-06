@@ -30,7 +30,8 @@ namespace Gamji.Infrastructure.Customers
 
 		public Customer AddNewCustomer(Customer c)
 		{
-			return new Customer();
+			var rnd = new Random();
+			return new Customer() { CustomerId = rnd.Next(100) } ;
 		}
 
 		public Customer ForgotPassword(string EmailId)
